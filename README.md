@@ -8,6 +8,6 @@ This action publishes a VS Code extension using vsce.
 
 ## Example usage
 
-    uses: sigma/vsce-publish-action@v0.0.1
+    uses: sigma/vsce-publish-action@v0.0.2
     with:
       vsce_token: ${{ secrets.VSCE_TOKEN }}
