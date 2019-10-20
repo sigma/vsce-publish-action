@@ -1,0 +1,17 @@
+# action.yml
+name: 'vsce publish'
+description: 'Publish VS Code extension'
+branding:
+  icon: 'upload-cloud'
+  color: 'gray-dark'
+inputs:
+  vsce_token:
+    description: 'vsce token'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - publish
+    - "-p"
+    - ${{ inputs.vsce_token }}
