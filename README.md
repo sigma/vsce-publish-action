@@ -2,10 +2,12 @@
 
 This action publishes a VS Code extension using vsce.
 
+## Inputs
+
+`vcse_token`: token to use for authentication (mandatory)
+
 ## Example usage
 
-uses: sigma/vsce-publish-action@vmaster
-env:
-  VSCE_TOKEN: ${{ secrets.VSCE_TOKEN }}
-with:
-  args: publish -p $VSCE_TOKEN
+    uses: sigma/vsce-publish-action@v0.0.1
+    with:
+      vsce_token: ${{ secrets.VSCE_TOKEN }}
