@@ -13,7 +13,7 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag $GITHUB_REPOSITORY:$(date +%s)
     - name: Publish to Registry
-      uses: actions/publish-docker@master
+      uses: elgohr/Publish-Docker-Github-Action@master
       with:
         name: docker.pkg.github.com/$GITHUB_REPOSITORY/vsce-publish-action
         username: ${{ secrets.DOCKER_GITHUB_USERNAME }}
