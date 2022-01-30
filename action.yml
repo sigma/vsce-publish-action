@@ -5,10 +5,10 @@ branding:
   icon: 'upload-cloud'
   color: 'gray-dark'
 inputs:
-  build_file:
+  build_pkg:
     description: Build .vsix file
     required: false
-    default: false
+    default: 'no'
   vsce_token:
     description: 'vsce token'
     required: true
@@ -19,5 +19,5 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.build_file }}
+    - ${{ inputs.build_pkg }}
     - ${{ inputs.vsce_token }}

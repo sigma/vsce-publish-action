@@ -1,6 +1,4 @@
-FROM node:10-slim
-
-ARG npm_version="1.68.0"
+FROM alpine:3.15
 
 LABEL version=$npm_version
 LABEL repository="https://github/sigma/vsce-action"
@@ -12,7 +10,8 @@ LABEL com.github.actions.description="Wraps the vsce CLI to be used in GitHub Ac
 LABEL com.github.actions.icon="package"
 LABEL com.github.actions.color="green"
 
+RUN apk add --no-cache bash
+RUN apk add --update nodejs npm 
 RUN npm install -g vsce@$npm_version
 
-COPY "entrypoint.sh" "/entrypoint.sh"
-ENTRYPOINT ["/entrypoint.sh"]
+COPY entrypoint.sh /entrypoint.sh
