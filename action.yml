@@ -5,13 +5,19 @@ branding:
   icon: 'upload-cloud'
   color: 'gray-dark'
 inputs:
+  build_pkg:
+    description: Build .vsix file
+    required: false
+    default: 'no'
   vsce_token:
     description: 'vsce token'
     required: true
+outputs:
+  vsix_path:
+    description: Path of the VSIX file
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - publish
-    - "-p"
+    - ${{ inputs.build_pkg }}
     - ${{ inputs.vsce_token }}
