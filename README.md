@@ -20,6 +20,7 @@ steps:
     uses: sigma/vsce-publish-action@v0.0.2
     with:
       vsce_token: ${{ secrets.VSCE_TOKEN }}
+      build_pkg: yes
   - name: Process further
     // Do whatever for instance draft release with gh cli
     run: echo ${{ steps.publisher.ouputs.vsix_path }}
