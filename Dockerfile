@@ -1,6 +1,5 @@
 FROM alpine:3.15
 
-LABEL version=$npm_version
 LABEL repository="https://github/sigma/vsce-action"
 LABEL homepage="https://github/sigma/vsce-action"
 LABEL maintainer="Yann Hodique <yann.hodique@gmail.com>"
@@ -12,7 +11,7 @@ LABEL com.github.actions.color="green"
 
 RUN apk add --no-cache bash
 RUN apk add --update nodejs npm 
-RUN npm install -g vsce@$npm_version
+RUN npm install -g vsce
 
 COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
